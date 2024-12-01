@@ -1,0 +1,12 @@
+services:
+  postgres:
+    container_name: pg_container
+    image: "postgres:12"
+    command: postgres -c max_connections=90 -c log_connections=on -c log_disconnections=on -c log_hostname=on
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      # DATABASE NAME - postgres
+    ports:
+      - "5433:5432"
+    restart: unless-stopped
